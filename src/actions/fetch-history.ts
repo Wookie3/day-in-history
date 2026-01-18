@@ -111,7 +111,7 @@ export async function fetchHistory(input: FetchHistoryInput): Promise<WikipediaF
       deathsCount: sanitizedData.deaths?.length || 0,
     });
 
-    return validatedData;
+    return sanitizedData;
 
   } catch (error) {
     logError(error, { input });

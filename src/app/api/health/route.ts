@@ -13,10 +13,15 @@ export async function GET() {
   };
 
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
     const wikiResponse = await fetch(`${env.WIKIPEDIA_API_URL}/`, {
       method: 'HEAD',
-      signal: AbortSignal.timeout(5000),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
     health.services.wikipedia = wikiResponse.ok ? 'ok' : 'degraded';
   } catch {
     health.services.wikipedia = 'unhealthy';
