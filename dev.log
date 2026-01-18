@@ -1,0 +1,42 @@
+
+> my-history-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.4.25:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 671ms
+○ Compiling / ...
+Error: Route "/" used `searchParams.month`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at DashboardPage (src\app\page.tsx:43:39)
+  41 | }) {
+  42 |   const today = new Date();
+> 43 |   const month = parseInt(searchParams.month ?? String(today.getMonth() + 1));
+     |                                       ^
+  44 |   const day = parseInt(searchParams.day ?? String(today.getDate()));
+  45 |
+  46 |   return (
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+ GET / 200 in 4.3s (compile: 3.4s, render: 889ms)
+Error: {
+  message: 'API request failed: 404',
+  code: 'UNKNOWN_ERROR',
+  context: { input: { month: 1, day: 18, bypassCache: false } },
+  timestamp: '2026-01-18T17:45:05.858Z'
+}
+⨯ Error: Wikipedia API error. Please try again later.
+    at fetchHistory (src\actions\fetch-history.ts:117:11)
+    at async HistoryContent (src\app\page.tsx:7:16)
+  115 |     logError(error, { input });
+  116 |     const appError = handleApiError(error);
+> 117 |     throw new Error(appError.message);
+      |           ^
+  118 |   }
+  119 | }
+  120 | {
+  digest: '2426962617'
+}
+✓ Compiled in 61ms

@@ -1,0 +1,686 @@
+
+> my-history-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.4.25:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 649ms
+ GET /api/health 200 in 1149ms (compile: 270ms, render: 879ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+Error: {
+  message: '[\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      0,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      6,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      8,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      31,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      35,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      39,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      45,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      51,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      53,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      55,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      59,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      67,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      73,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      79,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      82,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      84,\n' +
+    '      "pages",\n' +
+    '      1,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      85,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      93,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      94,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      110,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      112,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      114,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      121,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      128,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      132,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      142,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      144,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      145,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      158,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      160,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      164,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      179,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      182,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      183,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      187,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      195,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      196,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      203,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      241,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      248,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "births",\n' +
+    '      252,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "deaths",\n' +
+    '      10,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "deaths",\n' +
+    '      15,\n' +
+    '      "pages",\n' +
+    '      0,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "deaths",\n' +
+    '      17,\n' +
+    '      "pages",\n' +
+    '      1,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "deaths",\n' +
+    '      19,\n' +
+    '      "pages",\n' +
+    '      1,\n' +
+    '      "thumbnail"\n' +
+    '    ],\n' +
+    '    "message": "Invalid input: expected object, received undefined"\n' +
+    '  },\n' +
+    '  {\n' +
+    '    "expected": "object",\n' +
+    '    "code": "invalid_type",\n' +
+    '    "path": [\n' +
+    '      "'... 4760 more characters,
+  code: 'UNKNOWN_ERROR',
+  context: { input: { month: 1, day: 18, bypassCache: undefined } },
+  timestamp: '2026-01-18T18:35:33.136Z'
+}
+API Error: Error: An unexpected error occurred.
+    at fetchHistory (src\actions\fetch-history.ts:119:11)
+    at async POST (src\app\api\history\route.ts:9:18)
+  117 |     logError(error, { input });
+  118 |     const appError = handleApiError(error);
+> 119 |     throw new Error(appError.message);
+      |           ^
+  120 |   }
+  121 | }
+  122 |
+ POST /api/history 500 in 1030ms (compile: 581ms, render: 450ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 520ms (compile: 133ms, render: 387ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ POST /api/history 200 in 11ms (compile: 5ms, render: 7ms)
+Error: Route "/" used `searchParams.month`. `searchParams` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at DashboardPage (src\app\page.tsx:45:39)
+  43 | }) {
+  44 |   const today = new Date();
+> 45 |   const month = parseInt(searchParams.month ?? String(today.getMonth() + 1));
+     |                                       ^
+  46 |   const day = parseInt(searchParams.day ?? String(today.getDate()));
+  47 |
+  48 |   return (
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 1303ms (compile: 521ms, render: 782ms)
+✓ Compiled in 57ms
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 1035ms (compile: 55ms, render: 979ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 176ms (compile: 5ms, render: 171ms)
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Alberto_Nisman_Infobae_screenshot_2013.jpg/330px-Alberto_Nisman_Infobae_screenshot_2013.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Roberta_Peters_1974.JPG/330px-Roberta_Peters_1974.JPG 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Tweede_Kamer_mediadebat_l_mediawoordvoerder_Hermans_%28VVD%29%2C_r_CDA_college_va%2C_Bestanddeelnr_933-7473.jpg/330px-Tweede_Kamer_mediadebat_l_mediawoordvoerder_Hermans_%28VVD%29%2C_r_CDA_college_va%2C_Bestanddeelnr_933-7473.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tony_Verna.jpg/330px-Tony_Verna.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Kathryn_Abbe.png/330px-Kathryn_Abbe.png 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/7/78/Photo_of_Chief_Michael_Botmang.jpeg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/a/ab/T._S._Sinnathuray.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Michel-tournier.jpg/330px-Michel-tournier.jpg 429
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 1135ms (compile: 6ms, render: 1130ms)
+✓ Compiled in 53ms
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 768ms (compile: 81ms, render: 687ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 123ms (compile: 4ms, render: 119ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 132ms (compile: 4ms, render: 129ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 17 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 6.2s (compile: 3ms, render: 6.2s)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 155ms (compile: 2ms, render: 153ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 15 }
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ POST /api/history 200 in 11ms (compile: 3ms, render: 8ms)
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 13.0s (compile: 2ms, render: 13.0s)
+⚠ The requested resource "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif/330px-Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif" is an animated image so it will not be optimized. Consider adding the "unoptimized" property to the <Image>.
+✓ Compiled in 55ms
+✓ Compiled in 48ms
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 1317ms (compile: 89ms, render: 1228ms)
+✓ Compiled in 47ms
+✓ Compiled in 42ms
+✓ Compiled in 36ms
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ GET / 200 in 1174ms (compile: 89ms, render: 1085ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 116ms (compile: 3ms, render: 112ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 119ms (compile: 4ms, render: 116ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ GET / 200 in 115ms (compile: 2ms, render: 113ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 19 }
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 18 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 491ms (compile: 2ms, render: 489ms)
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 5.4s (compile: 3ms, render: 5.4s)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 17 }
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 375ms (compile: 1981µs, render: 373ms)
+[32m[INFO][0m Fetching Wikipedia data { month: 1, day: 16 }
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:17' }
+ POST /api/history 200 in 11ms (compile: 3ms, render: 9ms)
+[32m[INFO][0m Cache hit { cacheKey: 'history:1:18' }
+ POST /api/history 200 in 10ms (compile: 2ms, render: 8ms)
+[32m[INFO][0m Successfully fetched history { eventsCount: 20, birthsCount: 20, deathsCount: 20 }
+ POST /api/history 200 in 5.4s (compile: 4ms, render: 5.4s)
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/ZhouQi2017.png/330px-ZhouQi2017.png 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Andris_%C5%A0%C4%B7%C4%93le%2C_10._Saeimas_portrets.jpg/330px-Andris_%C5%A0%C4%B7%C4%93le%2C_10._Saeimas_portrets.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Carl_Karcher_with_a_hot_dog_cart_%28cropped%29.jpg/330px-Carl_Karcher_with_a_hot_dog_cart_%28cropped%29.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Philip_Lucock_1974_%28cropped%29.jpg/330px-Philip_Lucock_1974_%28cropped%29.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Robert_Hanbury_Brown.jpg/330px-Robert_Hanbury_Brown.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/a/a1/Auberon_Waugh_1980s.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pedro_Trebbau_a%C3%B1os_70_1.jpg/330px-Pedro_Trebbau_a%C3%B1os_70_1.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Barbier%2C_Jules%2C_Nadar%2C_Gallica.jpg/330px-Barbier%2C_Jules%2C_Nadar%2C_Gallica.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jim_McClelland_1974_%28cropped%29.jpg/330px-Jim_McClelland_1974_%28cropped%29.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Hiram_Rhodes_Revels_Brady-Handy2_%28cropped%29.jpg/330px-Hiram_Rhodes_Revels_Brady-Handy2_%28cropped%29.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/thumb/4/46/L%C3%A9o-Delibes-1875.png/330px-L%C3%A9o-Delibes-1875.png 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kaye_Webb_1972.jpg/330px-Kaye_Webb_1972.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Joseph-Octave_Cr%C3%A9mazie%2C_po%C3%A8te_canadien_%28HS85-10-16598%29.jpg/330px-Joseph-Octave_Cr%C3%A9mazie%2C_po%C3%A8te_canadien_%28HS85-10-16598%29.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Photo_of_a_John_C._Bogle_By_Bill_Cramer.jpg/330px-Photo_of_a_John_C._Bogle_By_Bill_Cramer.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/3/31/Evelyn_Barbara_Balfour.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Edmond_About_%281875%29.png/330px-Edmond_About_%281875%29.png 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Chris_Wilson_2.jpg/330px-Chris_Wilson_2.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Dr-bertram-wainer.jpg/330px-Dr-bertram-wainer.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Thaddeus_William_Harris_1795-1856.jpg/330px-Thaddeus_William_Harris_1795-1856.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/9/99/Jean_Nicolas_Pierre_Hachette.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VirginiaMauret1922.tif/lossless-page1-320px-VirginiaMauret1922.tif.png 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Bernard_Lee_in_Beat_the_Devil.jpg/330px-Bernard_Lee_in_Beat_the_Devil.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Joannis_Avramidis%2C_Humanit%C3%A4tss%C3%A4ule.jpg/330px-Joannis_Avramidis%2C_Humanit%C3%A4tss%C3%A4ule.jpg 429
+⨯ upstream image response failed for https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Sir_John_Moore_%28by_Sir_Thomas_Lawrence%29_-_original_colors_version.jpg/330px-Sir_John_Moore_%28by_Sir_Thomas_Lawrence%29_-_original_colors_version.jpg 429
