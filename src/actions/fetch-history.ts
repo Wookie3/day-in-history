@@ -36,34 +36,20 @@ function sanitizeWikipediaText(text: string): string {
 function sanitizeWikipediaFeed(feed: WikipediaFeed): WikipediaFeed {
   const MAX_EVENTS = 20;
 
+  const sanitizeEvent = (event: any) => ({
+    ...event,
+    text: event.text ? sanitizeWikipediaText(event.text) : '',
+    pages: (event.pages || []).slice(0, 1).map((page: any) => ({
+      ...page,
+      title: page.title ? DOMPurify.sanitize(page.title, { ALLOWED_TAGS: [] }) : '',
+      extract: page.extract ? sanitizeWikipediaText(page.extract) : null,
+    })),
+  });
+
   return {
-    births: feed.births?.slice(0, MAX_EVENTS).map((event: any) => ({
-      ...event,
-      text: sanitizeWikipediaText(event.text),
-      pages: event.pages?.slice(0, 1).map((page: any) => ({
-        ...page,
-        title: DOMPurify.sanitize(page.title, { ALLOWED_TAGS: [] }),
-        extract: page.extract ? sanitizeWikipediaText(page.extract) : null,
-      })),
-    })) || [],
-    deaths: feed.deaths?.slice(0, MAX_EVENTS).map((event: any) => ({
-      ...event,
-      text: sanitizeWikipediaText(event.text),
-      pages: event.pages?.slice(0, 1).map((page: any) => ({
-        ...page,
-        title: DOMPurify.sanitize(page.title, { ALLOWED_TAGS: [] }),
-        extract: page.extract ? sanitizeWikipediaText(page.extract) : null,
-      })),
-    })) || [],
-    events: feed.events?.slice(0, MAX_EVENTS).map((event: any) => ({
-      ...event,
-      text: sanitizeWikipediaText(event.text),
-      pages: event.pages?.slice(0, 1).map((page: any) => ({
-        ...page,
-        title: DOMPurify.sanitize(page.title, { ALLOWED_TAGS: [] }),
-        extract: page.extract ? sanitizeWikipediaText(page.extract) : null,
-      })),
-    })) || [],
+    births: (feed.births || []).slice(0, MAX_EVENTS).map(sanitizeEvent),
+    deaths: (feed.deaths || []).slice(0, MAX_EVENTS).map(sanitizeEvent),
+    events: (feed.events || []).slice(0, MAX_EVENTS).map(sanitizeEvent),
   };
 }
 
@@ -97,13 +83,44 @@ export async function fetchHistory(input: FetchHistoryInput): Promise<WikipediaF
 
     logger.info('Fetching Wikipedia data', { month, day });
 
-    const data = await wikipediaService.fetchOnThisDay(month, day);
+    let data;
+    try {
+      data = await wikipediaService.fetchOnThisDay(month, day);
+      logger.info('Wikipedia API response received', { hasData: !!data });
+    } catch (apiError) {
+      logger.error('Wikipedia API fetch failed', { error: apiError instanceof Error ? apiError.message : String(apiError), month, day });
+      throw apiError;
+    }
 
-    const validatedData = WikipediaFeedSchema.parse(data);
+    let validatedData;
+    try {
+      validatedData = WikipediaFeedSchema.parse(data);
+      logger.info('Wikipedia data validated', {
+        events: validatedData.events?.length,
+        births: validatedData.births?.length,
+        deaths: validatedData.deaths?.length,
+      });
+    } catch (validationError) {
+      logger.error('Wikipedia data validation failed', { error: validationError instanceof Error ? validationError.message : String(validationError) });
+      throw validationError;
+    }
 
-    const sanitizedData = sanitizeWikipediaFeed(validatedData);
+    let sanitizedData;
+    try {
+      sanitizedData = sanitizeWikipediaFeed(validatedData);
+      logger.info('Wikipedia data sanitized');
+    } catch (sanitizationError) {
+      logger.error('Wikipedia data sanitization failed', { error: sanitizationError instanceof Error ? sanitizationError.message : String(sanitizationError) });
+      throw sanitizationError;
+    }
 
-    await cache.set(cacheKey, sanitizedData, CACHE_STRATEGIES.HISTORY_DATA);
+    try {
+      await cache.set(cacheKey, sanitizedData, CACHE_STRATEGIES.HISTORY_DATA);
+      logger.info('Data cached successfully');
+    } catch (cacheError) {
+      logger.error('Cache set failed', { error: cacheError instanceof Error ? cacheError.message : String(cacheError) });
+      throw cacheError;
+    }
 
     logger.info('Successfully fetched history', {
       eventsCount: sanitizedData.events?.length || 0,

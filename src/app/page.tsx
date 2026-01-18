@@ -2,11 +2,16 @@ import { Suspense } from 'react';
 import { HistoryDashboardClient } from '@/components/history-dashboard-client';
 import { fetchHistory } from '@/actions/fetch-history';
 import { HistoryCardSkeleton } from '@/components/history-card-skeleton';
+import { ErrorState } from '@/components/error-state';
 
 async function HistoryContent({ month, day }: { month: number; day: number }) {
-  const data = await fetchHistory({ month, day, bypassCache: false });
-
-  return <HistoryDashboardClient initialData={data} month={month} day={day} />;
+  try {
+    const data = await fetchHistory({ month, day, bypassCache: false });
+    return <HistoryDashboardClient initialData={data} month={month} day={day} />;
+  } catch (error) {
+    console.error('Error in HistoryContent:', error);
+    return <ErrorState message="Failed to load historical data. Please try again later." onRetry={() => window.location.reload()} />;
+  }
 }
 
 export const dynamic = 'force-dynamic';
@@ -42,9 +47,18 @@ export default async function DashboardPage({
   searchParams: Promise<{ month?: string; day?: string }>;
 }) {
   const today = new Date();
-  const resolvedParams = await searchParams;
-  const month = parseInt(resolvedParams.month ?? String(today.getMonth() + 1));
-  const day = parseInt(resolvedParams.day ?? String(today.getDate()));
+  let month: number;
+  let day: number;
+
+  try {
+    const resolvedParams = await searchParams;
+    month = parseInt(resolvedParams.month ?? String(today.getMonth() + 1));
+    day = parseInt(resolvedParams.day ?? String(today.getDate()));
+  } catch (error) {
+    console.error('Error parsing search params:', error);
+    month = today.getMonth() + 1;
+    day = today.getDate();
+  }
 
   return (
     <main>
