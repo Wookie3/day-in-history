@@ -35,7 +35,7 @@ class WikipediaService {
 
       const response = await fetch(url, {
         headers: {
-          'Api-User-Agent': this.config.userAgent,
+          'User-Agent': this.config.userAgent,
           'Accept': 'application/json',
         },
         signal: controller.signal,
