@@ -26,7 +26,6 @@ const nextConfig: NextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  serverExternalPackages: ['isomorphic-dompurify'],
   headers: async () => {
     return [
       {
