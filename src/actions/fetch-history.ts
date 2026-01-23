@@ -133,6 +133,6 @@ export async function fetchHistory(input: FetchHistoryInput): Promise<WikipediaF
   } catch (error) {
     logError(error, { input });
     const appError = handleApiError(error);
-    throw new Error(appError.message);
+    throw appError;
   }
 }

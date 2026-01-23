@@ -18,6 +18,9 @@ export async function GET() {
 
     const wikiResponse = await fetch(`${env.WIKIPEDIA_API_URL}/`, {
       method: 'HEAD',
+      headers: {
+        'User-Agent': env.WIKIPEDIA_API_USER_AGENT,
+      },
       signal: controller.signal,
     });
 
