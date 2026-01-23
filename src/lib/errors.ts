@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 export enum ErrorCode {
   NETWORK_ERROR = 'NETWORK_ERROR',
   API_ERROR = 'API_ERROR',
@@ -5,6 +7,8 @@ export enum ErrorCode {
   VALIDATION_ERROR = 'VALIDATION_ERROR',
   UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
+
+// ... existing AppError class and WikipediaApiError class ...
 
 export class AppError extends Error {
   constructor(
@@ -30,6 +34,14 @@ export class WikipediaApiError extends Error {
 export function handleApiError(error: unknown): AppError {
   if (error instanceof AppError) {
     return error;
+  }
+
+  if (error instanceof z.ZodError) {
+     return new AppError(
+      'Data validation failed.',
+      ErrorCode.VALIDATION_ERROR,
+      { issues: error.issues }
+    );
   }
 
   if (error instanceof WikipediaApiError) {

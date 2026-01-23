@@ -31,8 +31,9 @@ function formatTitle(title?: string): string {
 }
 
 export function HistoryCard({ event, category }: HistoryCardProps) {
-  const thumbnail = event.pages[0]?.thumbnail;
-  const pageTitle = formatTitle(event.pages[0]?.title);
+  const firstPage = event.pages?.[0];
+  const thumbnail = firstPage?.thumbnail;
+  const pageTitle = formatTitle(firstPage?.title);
 
   return (
     <HoverCard>
@@ -71,12 +72,12 @@ export function HistoryCard({ event, category }: HistoryCardProps) {
             </h3>
             <p
               className="text-sm text-muted-foreground line-clamp-3 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: event.text }}
+              dangerouslySetInnerHTML={{ __html: event.text || '' }}
             />
 
             <div className="flex items-center justify-between pt-3 border-t border-border">
               <a
-                href={event.pages[0]?.content_urls?.desktop?.page || '#'}
+                href={firstPage?.content_urls?.desktop?.page || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -100,10 +101,10 @@ export function HistoryCard({ event, category }: HistoryCardProps) {
           <h4 className="text-sm font-semibold">{pageTitle}</h4>
           <p
             className="text-sm text-muted-foreground line-clamp-4"
-            dangerouslySetInnerHTML={{ __html: event.pages[0]?.extract || event.text }}
+            dangerouslySetInnerHTML={{ __html: firstPage?.extract || event.text || '' }}
           />
           <a
-            href={event.pages[0]?.content_urls?.desktop?.page || '#'}
+            href={firstPage?.content_urls?.desktop?.page || '#'}
             target="_blank"
             rel="noopener noreferrer"
           >
