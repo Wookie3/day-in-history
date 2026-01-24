@@ -6,7 +6,7 @@ import { rateLimiter } from '@/lib/rate-limiter';
 import { cache, CACHE_STRATEGIES } from '@/lib/cache';
 import { WikipediaFeedSchema, WikipediaFeed, type FetchHistoryInput } from '@/lib/types';
 import { handleApiError, logError } from '@/lib/errors';
-import DOMPurify from 'isomorphic-dompurify';
+import sanitizeHtml from 'sanitize-html';
 
 const FetchHistorySchema = {
   month: (input: number) => {
@@ -26,10 +26,14 @@ const FetchHistorySchema = {
 };
 
 function sanitizeWikipediaText(text: string): string {
-  return DOMPurify.sanitize(text, {
-    ALLOWED_TAGS: ['p', 'b', 'i', 'em', 'strong', 'a', 'span'],
-    ALLOWED_ATTR: ['href', 'title', 'class'],
-    ALLOW_DATA_ATTR: false,
+  return sanitizeHtml(text, {
+    allowedTags: ['p', 'b', 'i', 'em', 'strong', 'a', 'span'],
+    allowedAttributes: {
+      a: ['href', 'title', 'class'],
+      span: ['class'],
+      p: ['class'],
+    },
+    disallowedTagsMode: 'discard',
   });
 }
 
@@ -41,7 +45,7 @@ function sanitizeWikipediaFeed(feed: WikipediaFeed): WikipediaFeed {
     text: event.text ? sanitizeWikipediaText(event.text) : '',
     pages: (event.pages || []).slice(0, 1).map((page: any) => ({
       ...page,
-      title: page.title ? DOMPurify.sanitize(page.title, { ALLOWED_TAGS: [] }) : '',
+      title: page.title ? sanitizeHtml(page.title, { allowedTags: [] }) : '',
       extract: page.extract ? sanitizeWikipediaText(page.extract) : null,
     })),
   });

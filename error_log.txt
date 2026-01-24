@@ -1,0 +1,44 @@
+2026-01-23 02:43:13.910 [error] Error: Failed to load external module jsdom-4cccfac9827ebcfe: Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/@exodus/bytes/encoding-lite.js from /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js not supported.
+Instead change the require of encoding-lite.js in /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js to a dynamic import() which is available in all CommonJS modules.
+    at Context.externalRequire [as x] (.next/server/chunks/ssr/[turbopack]_runtime.js:535:15)
+    at module evaluation (.next/server/chunks/ssr/[root-of-the-server]__b70b9f47._.js:1:45)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.commonJsRequire [as r] (.next/server/chunks/ssr/[turbopack]_runtime.js:249:12)
+    at <unknown> (.next/server/chunks/ssr/_49c4a9ad._.js:1:22394)
+    at module evaluation (.next/server/chunks/ssr/_49c4a9ad._.js:1:22452)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:228:20) {
+  page: '/'
+}
+2026-01-23 02:43:13.920 [error] ⨯ Error: Failed to load external module jsdom-4cccfac9827ebcfe: Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/@exodus/bytes/encoding-lite.js from /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js not supported.
+Instead change the require of encoding-lite.js in /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js to a dynamic import() which is available in all CommonJS modules.
+    at Context.externalRequire [as x] (.next/server/chunks/ssr/[turbopack]_runtime.js:535:15)
+    at module evaluation (.next/server/chunks/ssr/[root-of-the-server]__b70b9f47._.js:1:45)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.commonJsRequire [as r] (.next/server/chunks/ssr/[turbopack]_runtime.js:249:12)
+    at <unknown> (.next/server/chunks/ssr/_49c4a9ad._.js:1:22394)
+    at module evaluation (.next/server/chunks/ssr/_49c4a9ad._.js:1:22452)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:228:20) {
+  page: '/'
+}
+2026-01-23 02:43:13.921 [error] ⨯ Error: Failed to load static file for page: /500 ENOENT: no such file or directory, open '/var/task/.next/server/pages/500.html'
+    at async Object.handler (___next_launcher.cjs:57:3)
+2026-01-23 02:43:13.922 [error] Error: Failed to load external module jsdom-4cccfac9827ebcfe: Error [ERR_REQUIRE_ESM]: require() of ES Module /var/task/node_modules/@exodus/bytes/encoding-lite.js from /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js not supported.
+Instead change the require of encoding-lite.js in /var/task/node_modules/html-encoding-sniffer/lib/html-encoding-sniffer.js to a dynamic import() which is available in all CommonJS modules.
+    at Context.externalRequire [as x] (.next/server/chunks/ssr/[turbopack]_runtime.js:535:15)
+    at module evaluation (.next/server/chunks/ssr/[root-of-the-server]__b70b9f47._.js:1:45)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.commonJsRequire [as r] (.next/server/chunks/ssr/[turbopack]_runtime.js:249:12)
+    at <unknown> (.next/server/chunks/ssr/_49c4a9ad._.js:1:22394)
+    at module evaluation (.next/server/chunks/ssr/_49c4a9ad._.js:1:22452)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:228:20) {
+  page: '/'
+}
