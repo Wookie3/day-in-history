@@ -105,20 +105,21 @@ export function HistoryDashboardClient({
 
   return (
     <div className="container mx-auto py-6 max-w-7xl">
-      <header className="flex items-center justify-between mb-8">
+      <header className="flex items-center justify-between mb-8 pb-6 border-b border-border">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">
+          <h1 className="text-4xl md:text-5xl font-serif-heading font-bold mb-2 elegant-underline">
             This Day in History
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <div className="vintage-divider-ornament text-lg text-accent mt-4">
             {format(selectedDate, 'MMMM d, yyyy')}
-          </p>
+          </div>
         </div>
 
         <Button
-          variant="outline"
+          variant="vintage"
           size="icon"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className="vintage-border-hover"
         >
           <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -128,11 +129,11 @@ export function HistoryDashboardClient({
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <aside className="lg:col-span-1">
-          <Card>
+          <Card className="vintage-frame vintage-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center justify-between">
+              <CardTitle className="flex items-center justify-between font-serif-heading">
                 Calendar
-                <Badge variant="secondary" className="ml-2">
+                <Badge variant="secondary" className="ml-2 font-serif-heading font-semibold border-2 border-accent">
                   {format(selectedDate, 'MMM d')}
                 </Badge>
               </CardTitle>
@@ -140,17 +141,23 @@ export function HistoryDashboardClient({
             <CardContent>
               <div className="flex items-center justify-between mb-4">
                 <Button
-                  variant="ghost"
+                  variant="vintage"
                   size="icon"
                   onClick={() => navigateDate(-1)}
+                  className="vintage-border-hover"
+                  title="Previous day"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
-                <span className="text-sm font-medium">Navigate</span>
+                <span className="text-sm font-serif-heading font-semibold gold-accent-text">
+                  {format(selectedDate, 'MMM d')}
+                </span>
                 <Button
-                  variant="ghost"
+                  variant="vintage"
                   size="icon"
                   onClick={() => navigateDate(1)}
+                  className="vintage-border-hover"
+                  title="Next day"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>
@@ -160,7 +167,7 @@ export function HistoryDashboardClient({
                 mode="single"
                 selected={selectedDate}
                 onSelect={handleDateChange}
-                className="rounded-md border"
+                className="rounded-md border-2 border-accent"
                 disabled={(date) =>
                   date > new Date() || date < new Date('0001-01-01')
                 }
@@ -175,13 +182,13 @@ export function HistoryDashboardClient({
           {!error && (
             <Tabs defaultValue="featured" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="featured" className="data-[state=active]:bg-amber-500 data-[state=active]:text-white">
+                <TabsTrigger value="featured">
                   Featured
                 </TabsTrigger>
-                <TabsTrigger value="births" className="data-[state=active]:bg-emerald-500 data-[state=active]:text-white">
+                <TabsTrigger value="births">
                   Births
                 </TabsTrigger>
-                <TabsTrigger value="deaths" className="data-[state=active]:bg-purple-500 data-[state=active]:text-white">
+                <TabsTrigger value="deaths">
                   Deaths
                 </TabsTrigger>
               </TabsList>

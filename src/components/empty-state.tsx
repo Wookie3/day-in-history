@@ -17,14 +17,14 @@ export function EmptyState({
   action,
 }: EmptyStateProps) {
   return (
-    <Card className="p-12 text-center">
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
-        <CalendarX className="h-8 w-8 text-muted-foreground" />
+    <Card className="p-12 text-center vintage-frame vintage-shadow">
+      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4 border-2 border-accent/50">
+        <CalendarX className="h-8 w-8 text-accent" />
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground mb-6">{description}</p>
+      <h3 className="text-xl font-serif-heading font-semibold mb-2">{title}</h3>
+      <p className="text-muted-foreground font-serif-body mb-6">{description}</p>
       {action && (
-        <Button onClick={action.onClick}>
+        <Button variant="vintage-gold" onClick={action.onClick}>
           {action.label}
         </Button>
       )}
