@@ -9,14 +9,14 @@ interface ErrorStateProps {
 
 export function ErrorState({ message = "Unable to load historical events", onRetry }: ErrorStateProps) {
   return (
-    <Alert variant="destructive" className="my-6">
+    <Alert variant="destructive" className="my-6 border-2 border-destructive/50 vintage-shadow">
       <AlertCircle className="h-4 w-4" />
-      <AlertTitle>Error</AlertTitle>
-      <AlertDescription className="mt-2">
+      <AlertTitle className="font-serif-heading">Error</AlertTitle>
+      <AlertDescription className="mt-2 font-serif-body">
         {message}. Please try again.
       </AlertDescription>
       {onRetry && (
-        <Button variant="outline" className="mt-4" onClick={onRetry}>
+        <Button variant="vintage" className="mt-4" onClick={onRetry}>
           <RefreshCw className="mr-2 h-4 w-4" />
           Try Again
         </Button>

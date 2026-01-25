@@ -15,6 +15,19 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+function CardVintage({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card"
+      className={cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border-2 border-accent vintage-frame vintage-shadow transition-all hover:vintage-shadow-lg",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -83,6 +96,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 export {
   Card,
+  CardVintage,
   CardHeader,
   CardFooter,
   CardTitle,
