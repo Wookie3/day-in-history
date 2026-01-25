@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HistoryCard } from '@/components/history-card';
 import { HistoryCardSkeleton } from '@/components/history-card-skeleton';
 import { ErrorState } from '@/components/error-state';
@@ -11,10 +11,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { format } from 'date-fns';
-import { ChevronLeft, ChevronRight, Moon, Sun } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Moon, Sun, Calendar as CalendarIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { WikipediaFeed, EventCategory } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 interface HistoryDashboardClientProps {
   initialData: WikipediaFeed;
@@ -32,6 +40,24 @@ export function HistoryDashboardClient({
   const [data, setData] = useState<WikipediaFeed>(initialData);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setIsHeaderVisible(false);
+      } else {
+        setIsHeaderVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const currentMonth = selectedDate.getMonth() + 1;
   const currentDay = selectedDate.getDate();
@@ -77,7 +103,7 @@ export function HistoryDashboardClient({
   const EventsList = ({ category, events }: { category: EventCategory; events: any[] }) => {
     if (isLoading) {
       return (
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="columns-1 gap-6 space-y-6">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <HistoryCardSkeleton key={i} />
           ))}
@@ -90,7 +116,7 @@ export function HistoryDashboardClient({
     }
 
     return (
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      <div className="columns-1 gap-6 space-y-6">
         {events.map((event, index) => (
           <div
             key={`${event.year}-${index}`}
@@ -104,31 +130,106 @@ export function HistoryDashboardClient({
   };
 
   return (
-    <div className="container mx-auto py-6 max-w-7xl">
-      <header className="flex items-center justify-between mb-8 pb-6 border-b border-border">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-serif-heading font-bold mb-2 elegant-underline">
-            This Day in History
-          </h1>
-          <div className="vintage-divider-ornament text-lg text-accent mt-4">
-            {format(selectedDate, 'MMMM d, yyyy')}
+    <>
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-40 bg-background transition-transform duration-300 border-b border-border",
+        !isHeaderVisible && "-translate-y-full"
+      )}>
+        <div className="container mx-auto py-4 px-4 max-w-7xl">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl md:text-4xl font-serif-heading font-bold elegant-underline">
+                This Day in History
+              </h1>
+              <div className="vintage-divider-ornament text-sm md:text-lg text-accent mt-2">
+                {format(selectedDate, 'MMMM d, yyyy')}
+              </div>
+            </div>
+
+            <Button
+              variant="vintage"
+              size="icon"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="vintage-border-hover"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
           </div>
         </div>
-
-        <Button
-          variant="vintage"
-          size="icon"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="vintage-border-hover"
-        >
-          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <aside className="lg:col-span-1">
+      <Sheet open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+        <SheetTrigger asChild>
+          <Button
+            variant="vintage"
+            size="icon"
+            className="fixed bottom-6 right-6 z-30 h-14 w-14 rounded-full shadow-lg lg:hidden vintage-border-hover"
+            aria-label="Open calendar"
+          >
+            <CalendarIcon className="h-6 w-6" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="top" className="h-[50vh] overflow-y-auto">
+          <SheetHeader className="px-4 pt-4">
+            <SheetTitle className="flex items-center justify-between font-serif-heading">
+              Calendar
+              <Badge variant="secondary" className="font-serif-heading font-semibold border-2 border-accent">
+                {format(selectedDate, 'MMM d')}
+              </Badge>
+            </SheetTitle>
+          </SheetHeader>
+          <div className="px-4 pb-4">
+            <div className="flex items-center justify-between mb-4">
+              <Button
+                variant="vintage"
+                size="icon"
+                onClick={() => {
+                  navigateDate(-1);
+                  setIsCalendarOpen(false);
+                }}
+                className="vintage-border-hover"
+                title="Previous day"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <span className="text-sm font-serif-heading font-semibold gold-accent-text">
+                {format(selectedDate, 'MMM d')}
+              </span>
+              <Button
+                variant="vintage"
+                size="icon"
+                onClick={() => {
+                  navigateDate(1);
+                  setIsCalendarOpen(false);
+                }}
+                className="vintage-border-hover"
+                title="Next day"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <Calendar
+              mode="single"
+              selected={selectedDate}
+              onSelect={(date) => {
+                handleDateChange(date);
+                setIsCalendarOpen(false);
+              }}
+              className="rounded-md border-2 border-accent"
+              disabled={(date) =>
+                date > new Date() || date < new Date('0001-01-01')
+              }
+            />
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-6 pt-24 lg:pt-6">
+        <aside className="hidden lg:block lg:col-span-1">
           <Card className="vintage-frame vintage-shadow">
             <CardHeader>
               <CardTitle className="flex items-center justify-between font-serif-heading">
@@ -193,7 +294,7 @@ export function HistoryDashboardClient({
                 </TabsTrigger>
               </TabsList>
 
-              <ScrollArea className="h-[calc(100vh-350px)] pr-4">
+              <ScrollArea className="h-[calc(100vh-200px)] lg:h-[calc(100vh-350px)] pr-4">
                 <TabsContent value="featured">
                   <EventsList category={EventCategory.FEATURED} events={data.events} />
                 </TabsContent>
@@ -211,5 +312,6 @@ export function HistoryDashboardClient({
         </main>
       </div>
     </div>
+    </>
   );
 }
