@@ -45,6 +45,8 @@ export function HistoryDashboardClient({
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || window.innerWidth >= 768) return;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
@@ -132,16 +134,17 @@ export function HistoryDashboardClient({
   return (
     <>
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-40 bg-background transition-transform duration-300 border-b border-border",
+        "lg:static fixed top-0 left-0 right-0 z-40 bg-background border-b border-border",
+        "lg:transition-none transition-transform duration-300",
         !isHeaderVisible && "-translate-y-full"
       )}>
-        <div className="container mx-auto py-4 px-4 max-w-7xl">
+        <div className="container mx-auto py-4 px-4 lg:py-6 max-w-7xl">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl md:text-4xl font-serif-heading font-bold elegant-underline">
+              <h1 className="text-2xl lg:text-4xl md:text-5xl font-serif-heading font-bold mb-0 lg:mb-2 elegant-underline">
                 This Day in History
               </h1>
-              <div className="vintage-divider-ornament text-sm md:text-lg text-accent mt-2">
+              <div className="vintage-divider-ornament text-sm lg:text-lg text-accent mt-2 lg:mt-4">
                 {format(selectedDate, 'MMMM d, yyyy')}
               </div>
             </div>
@@ -227,8 +230,8 @@ export function HistoryDashboardClient({
         </SheetContent>
       </Sheet>
 
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-6 pt-24 lg:pt-6">
+      <div className="container mx-auto px-4 lg:px-0 lg:py-0 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-6 pt-24 lg:pt-6 lg:py-6">
         <aside className="hidden lg:block lg:col-span-1">
           <Card className="vintage-frame vintage-shadow">
             <CardHeader>
