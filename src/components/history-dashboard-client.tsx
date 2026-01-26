@@ -105,7 +105,7 @@ export function HistoryDashboardClient({
   const EventsList = ({ category, events }: { category: EventCategory; events: any[] }) => {
     if (isLoading) {
       return (
-        <div className="columns-1 gap-6 space-y-6">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <HistoryCardSkeleton key={i} />
           ))}
@@ -118,7 +118,7 @@ export function HistoryDashboardClient({
     }
 
     return (
-      <div className="columns-1 gap-6 space-y-6">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
         {events.map((event, index) => (
           <div
             key={`${event.year}-${index}`}
