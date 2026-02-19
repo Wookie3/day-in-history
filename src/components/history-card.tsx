@@ -23,9 +23,9 @@ interface HistoryCardProps {
 }
 
 const categoryColors = {
-  [EventCategory.FEATURED]: 'bg-gradient-to-r from-amber-600 to-amber-700',
-  [EventCategory.BIRTHS]: 'bg-gradient-to-r from-emerald-600 to-emerald-700',
-  [EventCategory.DEATHS]: 'bg-gradient-to-r from-purple-600 to-purple-700',
+  [EventCategory.FEATURED]: 'bg-gradient-to-r from-amber-600/90 to-amber-700/90',
+  [EventCategory.BIRTHS]: 'bg-gradient-to-r from-indigo-600/90 to-indigo-700/90',
+  [EventCategory.DEATHS]: 'bg-gradient-to-r from-slate-600/90 to-slate-700/90',
 };
 
 const categoryBorders = {
