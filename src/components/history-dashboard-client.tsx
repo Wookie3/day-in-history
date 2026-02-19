@@ -243,9 +243,7 @@ export function HistoryDashboardClient({
                 setIsCalendarOpen(false);
               }}
               className="rounded-md border-2 border-accent"
-              disabled={(date) =>
-                date > new Date() || date < new Date('0001-01-01')
-              }
+              disabled={(date) => date < new Date('0001-01-01')}
             />
           </div>
         </SheetContent>
@@ -298,9 +296,7 @@ export function HistoryDashboardClient({
                 selected={selectedDate}
                 onSelect={handleDateChange}
                 className="rounded-md border-2 border-accent/20 glass"
-                disabled={(date) =>
-                  date > new Date() || date < new Date('0001-01-01')
-                }
+                disabled={(date) => date < new Date('0001-01-01')}
               />
             </CardContent>
           </Card>
