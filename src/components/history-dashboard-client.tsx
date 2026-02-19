@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HistoryCard } from '@/components/history-card';
 import { HistoryCardSkeleton } from '@/components/history-card-skeleton';
 import { ErrorState } from '@/components/error-state';
@@ -118,15 +119,25 @@ export function HistoryDashboardClient({
     }
 
     return (
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-        {events.map((event, index) => (
-          <div
-            key={`${event.year}-${index}`}
-            className="break-inside-avoid"
-          >
-            <HistoryCard event={event} category={category} />
-          </div>
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AnimatePresence mode="popLayout">
+          {events.map((event, index) => (
+            <motion.div
+              key={`${event.year}-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: Math.min(index * 0.05, 0.5),
+                ease: "easeOut" 
+              }}
+              className="h-full"
+            >
+              <HistoryCard event={event} category={category} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     );
   };
@@ -134,31 +145,41 @@ export function HistoryDashboardClient({
   return (
     <>
       <header className={cn(
-        "lg:static fixed top-0 left-0 right-0 z-40 bg-background border-b border-border",
-        "lg:transition-none transition-transform duration-300",
+        "lg:sticky lg:top-0 fixed top-0 left-0 right-0 z-40 glass border-b border-border/40",
+        "lg:transition-all transition-transform duration-500",
         !isHeaderVisible && "-translate-y-full"
       )}>
         <div className="container mx-auto py-4 px-4 lg:py-6 max-w-7xl">
           <div className="flex items-center justify-between">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <h1 className="text-2xl lg:text-4xl md:text-5xl font-serif-heading font-bold mb-0 lg:mb-2 elegant-underline">
                 This Day in History
               </h1>
               <div className="vintage-divider-ornament text-sm lg:text-lg text-accent mt-2 lg:mt-4">
                 {format(selectedDate, 'MMMM d, yyyy')}
               </div>
-            </div>
+            </motion.div>
 
-            <Button
-              variant="vintage"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="vintage-border-hover"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
             >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+              <Button
+                variant="vintage"
+                size="icon"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="vintage-border-hover glass hover:bg-accent/20 transition-all rounded-full"
+              >
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </header>
@@ -231,13 +252,18 @@ export function HistoryDashboardClient({
       </Sheet>
 
       <div className="container mx-auto px-4 lg:px-0 lg:py-0 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-6 pt-24 lg:pt-6 lg:py-6">
-        <aside className="hidden lg:block lg:col-span-1">
-          <Card className="vintage-frame vintage-shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 pt-24 lg:pt-8 lg:pb-12">
+        <motion.aside 
+          className="hidden lg:block lg:col-span-1"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          <Card className="vintage-frame vintage-shadow glass-card border-accent/20 sticky top-32">
             <CardHeader>
               <CardTitle className="flex items-center justify-between font-serif-heading">
                 Calendar
-                <Badge variant="secondary" className="ml-2 font-serif-heading font-semibold border-2 border-accent">
+                <Badge variant="secondary" className="ml-2 font-serif-heading font-semibold border-2 border-accent/40 bg-accent/10">
                   {format(selectedDate, 'MMM d')}
                 </Badge>
               </CardTitle>
@@ -248,7 +274,7 @@ export function HistoryDashboardClient({
                   variant="vintage"
                   size="icon"
                   onClick={() => navigateDate(-1)}
-                  className="vintage-border-hover"
+                  className="vintage-border-hover glass hover:bg-accent/20 rounded-full"
                   title="Previous day"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -260,7 +286,7 @@ export function HistoryDashboardClient({
                   variant="vintage"
                   size="icon"
                   onClick={() => navigateDate(1)}
-                  className="vintage-border-hover"
+                  className="vintage-border-hover glass hover:bg-accent/20 rounded-full"
                   title="Next day"
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -271,48 +297,64 @@ export function HistoryDashboardClient({
                 mode="single"
                 selected={selectedDate}
                 onSelect={handleDateChange}
-                className="rounded-md border-2 border-accent"
+                className="rounded-md border-2 border-accent/20 glass"
                 disabled={(date) =>
                   date > new Date() || date < new Date('0001-01-01')
                 }
               />
             </CardContent>
           </Card>
-        </aside>
+        </motion.aside>
 
-        <main className="lg:col-span-3">
+        <motion.main 
+          className="lg:col-span-3"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        >
           {error && <ErrorState message={error} onRetry={() => fetchHistoryData(currentMonth, currentDay)} />}
 
           {!error && (
             <Tabs defaultValue="featured" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="featured">
+              <TabsList className="grid w-full grid-cols-3 mb-8 glass p-1 rounded-xl border-border/30">
+                <TabsTrigger value="featured" className="rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg transition-all duration-300">
                   Featured
                 </TabsTrigger>
-                <TabsTrigger value="births">
+                <TabsTrigger value="births" className="rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg transition-all duration-300">
                   Births
                 </TabsTrigger>
-                <TabsTrigger value="deaths">
+                <TabsTrigger value="deaths" className="rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg transition-all duration-300">
                   Deaths
                 </TabsTrigger>
               </TabsList>
 
-              <ScrollArea className="h-[calc(100vh-200px)] lg:h-[calc(100vh-350px)] pr-4">
-                <TabsContent value="featured">
-                  <EventsList category={EventCategory.FEATURED} events={data.events} />
-                </TabsContent>
+              <ScrollArea className="h-[calc(100vh-200px)] lg:h-[calc(100vh-320px)] w-full pr-4">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedDate.toISOString()}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full"
+                  >
+                    <TabsContent value="featured" className="mt-0 outline-none w-full">
+                      <EventsList category={EventCategory.FEATURED} events={data.events} />
+                    </TabsContent>
 
-                <TabsContent value="births">
-                  <EventsList category={EventCategory.BIRTHS} events={data.births} />
-                </TabsContent>
+                    <TabsContent value="births" className="mt-0 outline-none w-full">
+                      <EventsList category={EventCategory.BIRTHS} events={data.births} />
+                    </TabsContent>
 
-                <TabsContent value="deaths">
-                  <EventsList category={EventCategory.DEATHS} events={data.deaths} />
-                </TabsContent>
+                    <TabsContent value="deaths" className="mt-0 outline-none w-full">
+                      <EventsList category={EventCategory.DEATHS} events={data.deaths} />
+                    </TabsContent>
+                  </motion.div>
+                </AnimatePresence>
               </ScrollArea>
             </Tabs>
           )}
-        </main>
+        </motion.main>
       </div>
     </div>
     </>

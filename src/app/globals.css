@@ -443,4 +443,94 @@
   .smooth-scale:hover {
     transform: scale(1.02);
   }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    background: color-mix(in oklch, var(--background), transparent 30%);
+    border: 1px solid color-mix(in oklch, var(--border), transparent 80%);
+  }
+
+  .glass-card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: color-mix(in oklch, var(--card), transparent 20%);
+    backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in oklch, var(--border), transparent 70%);
+  }
+
+  .glass-card:hover {
+    background: color-mix(in oklch, var(--card), transparent 10%);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px) scale(1.01);
+    border-color: var(--accent);
+  }
+
+  .dark .glass-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  .aura-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: var(--background);
+  }
+
+  .aura-blob {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    animation: aura-move 25s infinite alternate ease-in-out;
+  }
+
+  .aura-blob-1 {
+    top: -200px;
+    right: -100px;
+    background-color: var(--accent);
+  }
+
+  .aura-blob-2 {
+    bottom: -200px;
+    left: -100px;
+    background-color: var(--primary);
+    animation-delay: -7s;
+    animation-duration: 30s;
+  }
+
+  .aura-blob-3 {
+    top: 30%;
+    left: 15%;
+    width: 600px;
+    height: 600px;
+    background-color: var(--secondary);
+    animation-delay: -12s;
+    animation-duration: 35s;
+  }
+
+  @keyframes aura-move {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(60px, 80px) scale(1.1) rotate(10deg);
+    }
+    66% {
+      transform: translate(-40px, 40px) scale(0.9) rotate(-10deg);
+    }
+    100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+  }
+
+  .dark .aura-blob {
+    opacity: 0.08;
+    filter: blur(150px);
+  }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Crimson_Pro, Cinzel_Decorative } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AuraBackground } from "@/components/aura-background";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,13 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfairDisplay.variable} ${crimsonPro.variable} ${cinzelDecorative.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfairDisplay.variable} ${crimsonPro.variable} ${cinzelDecorative.variable} font-sans antialiased relative`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <AuraBackground />
           {children}
         </ThemeProvider>
       </body>
