@@ -460,8 +460,11 @@
   .glass-card:hover {
     background: color-mix(in oklch, var(--card), transparent 10%);
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px) scale(1.01);
     border-color: var(--accent);
+  }
+
+  .glass-card-hover-transform:hover {
+    transform: translateY(-8px) scale(1.02);
   }
 
   .dark .glass-card:hover {

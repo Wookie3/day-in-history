@@ -51,7 +51,7 @@ export function HistoryCard({ event, category }: HistoryCardProps) {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        whileHover={{ y: -8, transition: { duration: 0.2 } }}
+        whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
         className="h-full"
       >
         <Card className={cn(

@@ -259,7 +259,7 @@ export function HistoryDashboardClient({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <Card className="vintage-frame vintage-shadow glass-card border-accent/20 sticky top-32">
+          <Card className="vintage-frame vintage-shadow glass-card glass-card-hover-transform border-accent/20 sticky top-32">
             <CardHeader>
               <CardTitle className="flex items-center justify-between font-serif-heading">
                 Calendar
