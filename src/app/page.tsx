@@ -18,21 +18,21 @@ export const dynamic = 'force-dynamic';
 
 function LoadingSkeleton() {
   return (
-    <div className="container mx-auto py-6 max-w-7xl">
-      <div className="mb-8">
-        <div className="h-12 w-64 bg-muted rounded mb-2" />
-        <div className="h-6 w-48 bg-muted rounded" />
+    <div className="container mx-auto py-12 px-4 max-w-7xl pt-32 lg:pt-12">
+      <div className="mb-12">
+        <div className="h-16 w-80 bg-muted/40 rounded-xl mb-4 animate-pulse glass" />
+        <div className="h-6 w-56 bg-muted/30 rounded-lg animate-pulse glass" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
-          <div className="h-64 bg-muted rounded-lg" />
+          <div className="h-96 bg-muted/20 rounded-2xl glass animate-pulse" />
         </div>
 
         <div className="lg:col-span-3">
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <HistoryCardSkeleton key={i} />
+              <div key={i} className="h-96 bg-muted/20 rounded-2xl glass animate-pulse" />
             ))}
           </div>
         </div>

@@ -82,37 +82,37 @@
 }
 
 .dark {
-  --background: oklch(0.18 0.01 90);
-  --foreground: oklch(0.9 0.01 90);
-  --card: oklch(0.25 0.02 40);
-  --card-foreground: oklch(0.9 0.01 90);
-  --popover: oklch(0.25 0.02 40);
-  --popover-foreground: oklch(0.9 0.01 90);
-  --primary: oklch(0.7 0.12 85);
-  --primary-foreground: oklch(0.18 0.01 90);
-  --secondary: oklch(0.5 0.12 35);
-  --secondary-foreground: oklch(0.9 0.01 90);
-  --muted: oklch(0.3 0.02 40);
-  --muted-foreground: oklch(0.7 0.01 90);
-  --accent: oklch(0.45 0.1 200);
-  --accent-foreground: oklch(0.9 0.01 90);
-  --destructive: oklch(0.6 0.22 25);
-  --border: oklch(0.7 0.12 85 / 20%);
-  --input: oklch(0.7 0.12 85 / 15%);
-  --ring: oklch(0.7 0.12 85);
-  --chart-1: oklch(0.7 0.12 85);
-  --chart-2: oklch(0.5 0.12 35);
-  --chart-3: oklch(0.45 0.1 200);
-  --chart-4: oklch(0.4 0.15 25);
-  --chart-5: oklch(0.6 0.15 140);
-  --sidebar: oklch(0.25 0.02 40);
-  --sidebar-foreground: oklch(0.9 0.01 90);
-  --sidebar-primary: oklch(0.7 0.12 85);
-  --sidebar-primary-foreground: oklch(0.18 0.01 90);
-  --sidebar-accent: oklch(0.3 0.02 40);
-  --sidebar-accent-foreground: oklch(0.9 0.01 90);
-  --sidebar-border: oklch(0.7 0.12 85 / 20%);
-  --sidebar-ring: oklch(0.7 0.12 85);
+  --background: oklch(0.12 0.015 260);
+  --foreground: oklch(0.92 0.01 260);
+  --card: oklch(0.16 0.02 260);
+  --card-foreground: oklch(0.92 0.01 260);
+  --popover: oklch(0.16 0.02 260);
+  --popover-foreground: oklch(0.92 0.01 260);
+  --primary: oklch(0.75 0.14 85);
+  --primary-foreground: oklch(0.12 0.015 260);
+  --secondary: oklch(0.45 0.12 260);
+  --secondary-foreground: oklch(0.98 0.01 260);
+  --muted: oklch(0.2 0.02 260);
+  --muted-foreground: oklch(0.7 0.02 260);
+  --accent: oklch(0.6 0.15 200);
+  --accent-foreground: oklch(0.92 0.01 260);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.3 0.03 260 / 50%);
+  --input: oklch(0.3 0.03 260 / 30%);
+  --ring: oklch(0.6 0.15 200);
+  --chart-1: oklch(0.75 0.14 85);
+  --chart-2: oklch(0.6 0.15 200);
+  --chart-3: oklch(0.45 0.12 260);
+  --chart-4: oklch(0.85 0.1 140);
+  --chart-5: oklch(0.65 0.15 35);
+  --sidebar: oklch(0.14 0.02 260);
+  --sidebar-foreground: oklch(0.92 0.01 260);
+  --sidebar-primary: oklch(0.75 0.14 85);
+  --sidebar-primary-foreground: oklch(0.12 0.015 260);
+  --sidebar-accent: oklch(0.2 0.03 260);
+  --sidebar-accent-foreground: oklch(0.92 0.01 260);
+  --sidebar-border: oklch(0.3 0.03 260 / 50%);
+  --sidebar-ring: oklch(0.6 0.15 200);
 }
 
 @layer base {
@@ -442,5 +442,98 @@
 
   .smooth-scale:hover {
     transform: scale(1.02);
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    background: color-mix(in oklch, var(--background), transparent 30%);
+    border: 1px solid color-mix(in oklch, var(--border), transparent 80%);
+  }
+
+  .glass-card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: color-mix(in oklch, var(--card), transparent 20%);
+    backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in oklch, var(--border), transparent 70%);
+  }
+
+  .glass-card:hover {
+    background: color-mix(in oklch, var(--card), transparent 10%);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+  }
+
+  .glass-card-hover-transform:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .dark .glass-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  .aura-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: var(--background);
+  }
+
+  .aura-blob {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    animation: aura-move 25s infinite alternate ease-in-out;
+  }
+
+  .aura-blob-1 {
+    top: -200px;
+    right: -100px;
+    background-color: var(--accent);
+  }
+
+  .aura-blob-2 {
+    bottom: -200px;
+    left: -100px;
+    background-color: var(--primary);
+    animation-delay: -7s;
+    animation-duration: 30s;
+  }
+
+  .aura-blob-3 {
+    top: 30%;
+    left: 15%;
+    width: 600px;
+    height: 600px;
+    background-color: var(--secondary);
+    animation-delay: -12s;
+    animation-duration: 35s;
+  }
+
+  @keyframes aura-move {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(60px, 80px) scale(1.1) rotate(10deg);
+    }
+    66% {
+      transform: translate(-40px, 40px) scale(0.9) rotate(-10deg);
+    }
+    100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+  }
+
+  .dark .aura-blob {
+    opacity: 0.15;
+    filter: blur(140px);
   }
 }
